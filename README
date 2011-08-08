@@ -1,0 +1,7 @@
+This folder is a collection of programs written in python, these are small utilities which can be used on daily basis.
+
+FileInfo.py
+  - Description: Sometimes we want to know the total number of files of a certain type, Given the path name and extension this program display their names as well as the count of those files.
+  
+ValidateURL.py
+  - Description: Given a url, this program validates the domain as well as the path (if it exists)
