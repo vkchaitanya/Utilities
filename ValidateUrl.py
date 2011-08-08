@@ -12,11 +12,9 @@ class ValidateURL:
 
     def _startActivity(self,url):
         self._parts = urlparse(url)
-        a = self._checkDomain(self._parts[1])
-        if a:
+        if self._checkDomain(self._parts[1]):
             print 'The domain: ', self._parts[1], ' is valid'
-            b = self._checkUrl(url)
-            if b == 1:
+            if self._checkUrl(url):
                 print url,' is valid'
             else:
                 print 'The path ',self._parts[2],' is not valid'
@@ -25,26 +23,26 @@ class ValidateURL:
 
     #Checks whether the domain is right or not
     def _checkDomain(self,domain):
-        x = 1
+        x = True
         try:
             socket.gethostbyname_ex(domain)
         except socket.gaierror:
-            x = 0
+            x = False
         except socket.error:
-            x = 0
+            x = False
         finally:
             return x
 
     #Checks whether the path is right or not
     def _checkUrl(self,url):
-        x = 1
+        x = True
         self._req = urllib2.Request(url)
         try:
             urllib2.urlopen(self._req)
         except urllib2.URLError, e:
-            x = 0
+            x = False
         finally:
-            return x
+            return False
 
 if __name__ == "__main__":
     valid = ValidateURL('http://www.bbc.co.uk/news/world-europ/')
