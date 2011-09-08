@@ -2,6 +2,8 @@ This folder is a collection of programs written in python, these are small utili
 
 FileInfo.py
   - Description: Sometimes we want to know the total number of files of a certain type, Given the path name and extension this program display their names as well as the count of those files.
+  Execution: python FileInfo.py -l /home/location/ -e *.ext
+  Try -> python FileInfo.py -h to know the options.
   
 ValidateURL.py
   - Description: Given a url, this program validates the domain as well as the path (if it exists)
